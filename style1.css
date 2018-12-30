@@ -1,5 +1,15 @@
+html{
+	background: url(stars_bground.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 body{
 	margin: 0;
+	padding: 0;
+	height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 16px;
 }
@@ -10,7 +20,7 @@ body{
 	text-align: center;
 	top: 40%;
 	width: 100%;
-	line-heigth: 0.4em;
+	line-height: 0.4cm;
 }
 
 h1{
@@ -27,6 +37,6 @@ h1{
 }
 
 #particles-js{
-	background-image: url('stars_bground.jpg');
-	height: 100vh;
+	height: 100%;
+
 }
