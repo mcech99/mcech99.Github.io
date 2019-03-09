@@ -63,7 +63,7 @@ h2{
 
 @media only screen and (max-width: 1020px) {
     iframe {
-        width: 396vw;
+        width: 1vw;
         height: 3200px;
         border: 0;
         transform: scale(0.25);
@@ -74,5 +74,8 @@ h2{
     }
     p{
         margin-bottom: 5px;
+    }
+    html{
+        background: #000;
     }
 }
