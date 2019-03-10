@@ -7,7 +7,6 @@
 	<title>Maggie Cech</title>
 	<link rel="stylesheet" href="style1.css" title="external style sheet">
 	<link rel="stylesheet" href="animate.css">
-	<link rel="stylesheet" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,6 +26,7 @@
 <script>
 	new WOW().init();
 </script>
+                                        
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<div class="container-fluid">
 
@@ -56,22 +56,31 @@
 		</div>
 	</div>
 
-	<div id="section2" class="container-fluid" style="position:center">
+    <!--Resume-->
+	<div id="section2" class="container-fluid">
 		<div id="left-div">
 			<h2>Resume</h2>
 		</div>
-		<a href="files/MCechResume.PDF">
+		<div id="right-div">
+			<a href="files/MCechResume.PDF">
 			<span style="font-size: 48px; color: white; margin-left:10px">
 			<i class="far fa-file-word" title="Resume"></i></span>
-		</a>
-		<center><iframe src="https://drive.google.com/file/d/1m6dGbaIWiN59K9gtFEav1Q-bq7UwDgZ5/preview" width="900" height="600"></iframe></br>
-			<span style="font-size: 35px;">
-				<a href="#section3">
+		</a></div>
+        <!--Transcript PDF-->
+		<object width="75%" height="500" style="margin-top:100px" type="application/pdf" data="files/MCechResume.PDF">
+            <param name="view" value="Fit" />
+            <p>Oops.. your browser isn't compatible with the PDF viewer. No problem though! Just click the "W" document to view the document in a different tab. </p>
+            </object><br/>
+            <!--Down Arrow-->
+            <center>
+			 <span style="font-size: 35px;">
+				<a href="#section4">
 				<i class="fas fa-angle-down" style="color:#0099e5"></i></a>
 			</span>
 		</center>
 	</div>
 
+    <!--Transcript-->
 	<div id="section3" class="container-fluid">
 		<div id="left-div">
 			<h2>Transcript</h2>
@@ -79,16 +88,23 @@
 		<div id="right-div">
 			<a href="files/MCechTranscript.PDF">
 			<span style="font-size: 48px; color: white; margin-left:10px">
-			<i class="far fa-file-word" title="Resume"></i></span>
+			<i class="far fa-file-word" title="Transcript"></i></span>
 		</a></div>
-		<center><iframe src="https://drive.google.com/file/d/1FelJx2uvpTR5XrEBVj_rTfgzqJH76OEP/preview" width="900" height="600"></iframe><br/>
-			<span style="font-size: 35px;">
+        <!--Transcript PDF-->
+		<object width="75%" height="500" style="margin-top:100px" type="application/pdf" data="files/MCechTranscript.PDF">
+            <param name="view" value="Fit" />
+            <p>Oops.. your browser isn't compatible with the PDF viewer. No problem though! Just click the "W" document to view the document in a different tab. </p>
+            </object><br/>
+            <!--Down Arrow-->
+            <center>
+			 <span style="font-size: 35px;">
 				<a href="#section4">
 				<i class="fas fa-angle-down" style="color:#0099e5"></i></a>
 			</span>
 		</center>
 	</div>
 
+    <!--Contact Links-->
 	<div id="section4" class="container-fluid">
 		<div id="left-div">
 			<h2>Contact Me</h2>
