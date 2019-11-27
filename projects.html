@@ -33,16 +33,6 @@ body {
   padding: 10px;
 }
 
-/* Style the images inside the grid */
-.column img {
-  opacity: 0.6; 
-  cursor: pointer; 
-}
-
-.column img:hover {
-  opacity: .8;
-}
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -50,42 +40,13 @@ body {
   clear: both;
 }
 
-/* The expanding image container */
-.container {
-  position: relative;
-  display: none;
-}
-
-.container img{
-    opacity: .6;
-    }
-
-/* Expanding image text */
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-size: 40px;
-}
-
-/* Closable button inside the expanded image */
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-/* Container holding the image and the text */
+    /* Container holding the image and the text */
 .container2 {
   position: relative;
   text-align: center;
   color: white;
 }
-
+    
 /* Centered text */
 .centered {
   position: absolute;
@@ -94,80 +55,328 @@ body {
   transform: translate(-50%, -50%);
 }
     
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Container needed to position the button. Adjust the width as needed */
+.btncontainer {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.btncontainer img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.btncontainer .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+    
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
 </style>
 </head>
+  
 <body>
-
 <div style="text-align:center">
   <h1>Projects</h1>
   <p>Click on an image to learn more about the project!</p>
-</div>
-
-<!-- The four columns -->
+</div>  
+    
+<!-- Projects -->
 <div class="row">
   <div class="column">
-  	<div class="container2">
-    	<img src="photos/mars-rover.png" alt="I have been a part of the Binghamton Mars Rover team for two years now and work on the electrical platform team. This year we worked on optimizing and documenting preexisting systems for battery management, motor controls, and safety." style="width:100%" onclick="myFunction(this);">
-        <div class="centered">IEEE Mars Rover Project</div>
-     </div>
-      <div class="container2">
-        <img src="photos/web-dev.jpg" alt="Currently, I am the intern for an early stage startup looking to improve the hiring and employment process for job seekers. I work with the tech lead to build and add content to the site using Wordpress, which is the main focal point of the business. We video conference weekly to discuss progress and I communicate frequently with the tech lead outside of those meetings. As we progress with the development of the site and find more funding, my work will most likely shift into more testing and upkeep of the website." style="width:100%" onclick="myFunction(this);">
-          <div class="centered">Web Development Intern</div>
+      <div class="btncontainer">
+          <button id="btn1" class="btn">IEEE Mars Rover</button>
+          <img src="photos/mars-rover.png" style="width:100%" onclick="myFunction(this);">
       </div>
-  </div>
-  <div class="column">
-    <div class="container2">
-        <img src="photos/swe.png" alt="I currently serve as the treasurer for the Society of Women Engineers at Binghamton and, along with managing our finances, built a new website for the organization, teaching myself HTML and CSS along the way. I now lead a committee for maintenance and updates to the website. </br> Using my newly gained knowledge of web development, I developed a seminar to teach SWE members how to create their own personal websites, using templates I created. </br> Check out binghamton-swe.org to see the SWE website!" style="width:100%" onclick="myFunction(this);">
-          <div class="centered">SWE Website</div>
-      </div>
-      <div class="container2">
-        <img src="photos/arduino.jpg" alt="I worked on a team of four people to design and build a laser tag game using the Arduino Uno. The game was themed around 'Cowboys vs. Aliens' and the Arduino was housed in vests designed to fit the theme. We hooked up three LEDs to glasses the players would wear and had the LEDs turn off in succession (to count down) to show the player when to turn around and shoot, old western stand-off style. Players would 'shoot' using a universal remote embedded inside a glove and had three IR receiver targets to aim for on each vest. The losing player's Arduino would play a sound when they're hit. I mainly worked on writing the code for the project and assisting with wiring up the vests. We placed 2nd out of 12 teams in our category." style="width:100%" onclick="myFunction(this);">
-          <div class="centered">Arduino Laser Tag</div>
-      </div>
-  </div>
-  <div class="column">
-      <div class="container2">
-        <img src="photos/autonomous-rover.jpg" alt="There were two parts to this project, the second one building off the first. The first task of this project was to build a rover that could move to certain (x,y) coordinates. Using a Papilio duo microcontroller, Dagu 5 Rover, and the Xilinx logic program, my partner and I built the processor, ALU, registers, and instruction multiplexer using only logic elements. We wrote the instructions in assembly and then converted those to hex and stored them in the instruction set. The coordinates were input on the microcontroller's switches in hex. <br/> The second part of this project was to rewire the rover so that it was connected to a receiver that could detect differences in color. Using C, we programmed the rover to autonomously complete a maze using a left bias algorithm." style="width:100%" onclick="myFunction(this);">
-          <div class="centered">Autonomous Rover</div>
-      </div>
-      <div class="container2">
-        <img src="photos/ey-trajectory.jpeg" alt="This was a semester long case-study program based around the fictional 'Ernst Bank'. My team of four others and myself worked as cybersecurity risk consultants to identify the risk Ernst Bank faced and then developed a program to mitigate that risk. We came up with three solutions for the bank based off the results of an assesment tool we created, focusing on the five cybersecurity functions from the NIST Framework. As the only engineer on the team, I built the assesment tool using Python and the Tkinter module. We conferenced weekly with two consultants at EY to update them on our progress and receive critiques on our work. The project culminated in a presentation to EY executives at their Times Square Office." style="width:100%" onclick="myFunction(this);">
-          <div class="centered">EY Trajectory Program</div>
+      <div class="btncontainer">
+          <button id="btn2" class="btn">Web Development Intern</button>
+          <img src="photos/web-dev.jpg" style="width:100%" onclick="myFunction(this);">
       </div>
     </div>
-  <div class="column">
-      <div class="container2">
-    <img src="photos/python-ttt.jpg" alt="This was a final project for an Object Oriented Programming class in Python. My partner and I coded a tic-tac-toe game using Tkinter to create the GUI. The game allowed two players to play against each other for multiple rounds of the game. It would keep track of wins, losses, and ties for both sides and had an added feature that allowed users to view a bar graph of the scores, using the matplotlib library. We also debugged, tested, and documented the project with a source code explanation and user's guide." style="width:100%" onclick="myFunction(this);">
-      <div class="centered">Python Tic-Tac-Toe</div>
+    <div class="column">
+      <div class="btncontainer">
+          <button id="btn3" class="btn">SWE Website</button>
+          <img src="photos/swe.png" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="btncontainer">
+            <button id="btn4" class="btn">Arduino Project</button>
+            <img src="photos/arduino.jpg" style="width:100%" onclick="myFunction(this);">
+        </div>
+    </div>
+    <div class="column">
+        <div class="btncontainer">
+            <button id="btn5" class="btn">Autonomous Rover</button>
+            <img src="photos/autonomous-rover.jpg" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="btncontainer">
+            <button id="btn6" class="btn">EY Trajectory Program</button>
+            <img src="photos/ey-trajectory.jpeg" style="width:100%" onclick="myFunction(this);">
+        </div>
+    </div>
+    <div class="column">
+        <div class="btncontainer">
+            <button id="btn7" class="btn">Python Tic-Tac-Toe</button>
+            <img src="photos/python-ttt.jpg" style="width:100%" onclick="myFunction(this);">
+        </div>
+    </div>
+</div>
+</body>
+
+<div id="modal1" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>IEEE Mars Rover Project</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">I have been a part of the Binghamton Mars Rover team for two years now and work on the electrical platform team. This year we worked on optimizing and documenting preexisting systems for battery management, motor controls, and safety.</font></p>
+  </div>
+</div>
+</div>
+    
+<div id="modal2" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Web Development Intern</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">I worked as the intern for an early stage startup looking to improve the hiring and employment process for job seekers. I worked with the tech lead to build and add content to the site using Wordpress, which is the main focal point of the business. We video conferenced weekly to discuss progress and I communicated frequently with the tech lead outside of those meetings. As we progressed with the development of the site, my work will most likely shifted into more testing and upkeep of the website.</font></p>
   </div>
 </div>
 </div>
 
-<div class="container">
-  <div class="container2">
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;
-  </span>
-  </div> 
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
+<div id="modal3" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Society of Women Engineers Website</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">I currently serve as the Treasurer for the Society of Women Engineers at Binghamton and, along with managing our finances, built a new website for the organization, teaching myself HTML and CSS along the way. I now lead a committee for maintenance and updates to the website. <br> Using my newly gained knowledge of web development, I also developed a seminar to teach SWE members how to create their own personal websites, using templates I created. <br> Check out binghamton-swe.org to see the SWE website!</font></p>
+  </div>
+</div>
+</div>
+
+<div id="modal4" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Arduino Laser Tag</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">I worked on a team of four people to design and build a laser tag game using the Arduino Uno. The game was themed around 'Cowboys vs. Aliens' and the Arduino was housed in vests designed to fit the theme. We hooked up three LEDs to glasses the players would wear and had the LEDs turn off in succession (to count down) to show the player when to turn around and shoot, old western stand-off style. Players would 'shoot' using a universal remote embedded inside a glove and had three IR receiver targets to aim for on each vest. The losing player's Arduino would play a sound when they're hit. I mainly worked on writing the code for the project and assisting with wiring up the vests. We placed 2nd out of 12 teams in our category.</font></p>
+  </div>
+</div>
+</div>
+
+<div id="modal5" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Autonomous Rover</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">There were two parts to this project, the second one building off the first. The first task of this project was to build a rover that could move to certain (x,y) coordinates. Using a Papilio duo microcontroller, Dagu 5 Rover, and the Xilinx logic program, my partner and I built the processor, ALU, registers, and instruction multiplexer using only logic elements. We wrote the instructions in assembly and then converted those to hex and stored them in the instruction set. The coordinates were input on the microcontroller's switches in hex. <br/> The second part of this project was to rewire the rover so that it was connected to a receiver that could detect differences in color. Using C, we programmed the rover to autonomously complete a maze using a left bias algorithm.</font></p>
+  </div>
+</div>
 </div>
     
-<a href="index.html">
-    <center><span style="font-size: 48px; color: white; margin-left:10px;margin-top:50px">
-        <i class="fas fa-home" title="Homoe"></i></span></center>
-</a>
-
+<div id="modal6" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>EY Trajectory Program</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">This was a semester long case-study program based around the fictional 'Ernst Bank'. My team of four others and myself worked as cybersecurity risk consultants to identify the risk Ernst Bank faced and then developed a program to mitigate that risk. We came up with three solutions for the bank based off the results of an assesment tool we created, focusing on the five cybersecurity functions from the NIST Framework. As the only engineer on the team, I built the assesment tool using Python and the Tkinter module. We conferenced weekly with two consultants at EY to update them on our progress and receive critiques on our work. The project culminated in a presentation to EY executives at their Times Square Office.</font></p>
+  </div>
+</div>
+</div>
+    
+<div id="modal7" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Python Tic-Tac-Toe</h2>
+  </div>
+  <div class="modal-body">
+      <p><font color="black">This was a final project for an Object Oriented Programming class in Python. My partner and I coded a tic-tac-toe game using Tkinter to create the GUI. The game allowed two players to play against each other for multiple rounds of the game. It would keep track of wins, losses, and ties for both sides and had an added feature that allowed users to view a bar graph of the scores, using the matplotlib library. We also debugged, tested, and documented the project with a source code explanation and user's guide.</font></p>
+  </div>
+</div>
+</div>
+    
 
 <script>
-function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
-  expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  expandImg.parentElement.style.display = "block";
+// Get the modal
+var modal = document.getElementById("modal1");
+var modal2 = document.getElementById("modal2");
+var modal3 = document.getElementById("modal3");
+var modal4 = document.getElementById("modal4");
+var modal5 = document.getElementById("modal5");
+var modal6 = document.getElementById("modal6");
+var modal6 = document.getElementById("modal7");
+// Get the button that opens the modal
+var btn = document.getElementById("btn1");
+var btn2 = document.getElementById("btn2");
+var btn3 = document.getElementById("btn3");
+var btn4 = document.getElementById("btn4");
+var btn5 = document.getElementById("btn5");
+var btn6 = document.getElementById("btn6");
+var btn7 = document.getElementById("btn7");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
+var span3 = document.getElementsByClassName("close")[2];
+var span4 = document.getElementsByClassName("close")[3];
+var span5 = document.getElementsByClassName("close")[4];
+var span6 = document.getElementsByClassName("close")[5];
+var span7 = document.getElementsByClassName("close")[6];
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+btn3.onclick = function() {
+  modal3.style.display = "block";
+}
+btn4.onclick = function() {
+  modal4.style.display = "block";
+}
+btn5.onclick = function() {
+  modal5.style.display = "block";
+}
+btn6.onclick = function() {
+  modal6.style.display = "block";
+}
+btn7.onclick = function() {
+  modal7.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+span3.onclick = function() {
+    modal3.style.display = "none";
+}
+span4.onclick = function() {
+    modal4.style.display = "none";
+}
+span5.onclick = function() {
+    modal5.style.display = "none";
+}
+span6.onclick = function() {
+    modal6.style.display = "none";
+}
+span7.onclick = function() {
+    modal7.style.display = "none";
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>
-
-</body>
-</html>
